@@ -17,6 +17,41 @@ class SliderController extends Controller
         $listSliders = Slider::get();
         return view('admin.slider.list', compact('listSliders'));
     }
+    //
+    public function slider_edit($id)
+    {
+        $sliders = Slider::find($id);
+        return view('admin.slider.edit', compact('sliders'));
+    }
+    //
+    public function slider_edit_post(Request $request,$id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:50',
+        ]);
+        if ($validator->fails()) {
+            return redirect('admin/slider/edit/' .$id)
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $sliders = Slider::find($id);
+            $sliders->status = $request->status;
+            $sliders->name = $request->name;
+            $sliders->sort = $request->sort;
+            $Flag = $sliders->save();
+            if ($Flag == true) {
+                return redirect('admin/slider/edit/' . $id)->with([
+                    'flash_level' => 'success',
+                    'flash_message' => '情報更新しました。 '
+                ]);
+            } else {
+                return redirect('admin/slider/edit/' . $id)->with([
+                    'flash_level' => 'danger',
+                    'flash_message' => '情報更新失敗しました。'
+                ]);
+            }
+        }
+    }
 
     public function slider_add_post(Request $request)
     {
@@ -25,7 +60,7 @@ class SliderController extends Controller
             'images' => 'required',
         ]);
         if ($validator->fails()) {
-            return redirect('admin/slider/edit/' . $id)
+            return redirect('admin/slider/list')
                 ->withErrors($validator)
                 ->withInput();
         } else {

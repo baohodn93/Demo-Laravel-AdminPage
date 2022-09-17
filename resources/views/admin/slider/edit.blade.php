@@ -1,7 +1,7 @@
 @extends('admin.template.master')
-@section('title', 'Contact')
-@section('heading', 'Contact Edit')
-@section('contact', 'active')
+@section('title', 'Slider')
+@section('heading', 'Slider Edit')
+@section('slider', 'active')
 @section('content')
 
 <div class="col-md-12">
@@ -20,26 +20,22 @@
             <div class="card-body">
                 <div class="form-group">
                     <select class="form-control" name="status">
-                        <option value="1" @if($contacts->isviews == 1) selected ="" @endif>
-                            Status：Viewed
+                        <option value="1" @if($sliders->isviews == 1) selected ="" @endif>
+                            Status：On
                         </option>
-                        <option value="0" @if($contacts->isviews == 0) selected ="" @endif>
-                            Status：Un Viewed
+                        <option value="0" @if($sliders->isviews == 0) selected ="" @endif>
+                            Status：Off
                         </option>
                     </select>
                 </div>
-                <input type="hidden" name="id" value="{{$contacts->id}}">
+                <input type="hidden" name="id" value="{{$sliders->id}}">
                 <div class="form-group">
                     <label for="name" class="color-red">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{$contacts->name}}">
+                    <input type="text" class="form-control" name="name" id="name" value="{{$sliders->name}}">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="color-red">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{{$contacts->email}}">
-                </div>
-                <div class="form-group">
-                    <label for="phone" class="color-red">Phone</label>
-                    <input type="text" class="form-control" name="phone" id="phone" value="{{$contacts->phone}}">
+                    <label for="sort" class="color-red">Arrange</label>
+                    <input type="text" class="form-control" name="sort" id="sort" value="{{$sliders->sort}}">
                 </div>
             </div>
             <!-- /.card-body -->

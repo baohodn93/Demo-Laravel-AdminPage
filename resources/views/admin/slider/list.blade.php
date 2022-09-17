@@ -63,6 +63,8 @@
                 {{ __('New Slider') }}
             </button>
         </div>
+        <!-- Error Message表示 -->
+        @include('admin.error')
         <div class="card-body">
             <div class="col-sm-12">
                 <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
@@ -71,7 +73,7 @@
                             <!-- <th style="width: 10px;"></th> -->
                             <th style="width: 10px;">ID</th>
                             <th>Name</th>
-                            <th>Avarta</th>
+                            <th>Avatar</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -123,8 +125,6 @@
                 <!-- form start -->
                 <form action="{{url ('admin/slider/add') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <!-- Error Message表示 -->
-                    @include('admin.error')
                     <div class="row">
                     <div class="col-md-12">
                             <div class="form-group">
@@ -150,6 +150,12 @@
                             <div class="form-group">
                                 <label for="images" class="color-red">Images</label>
                                 <input type="file" class="form-control" name="images">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="sort" class="color-red">Sort</label>
+                                <input type="text" class="form-control" name="sort">
                             </div>
                         </div>
                     </div>

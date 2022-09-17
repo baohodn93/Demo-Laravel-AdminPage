@@ -51,7 +51,7 @@ class FrontController extends Controller
             ->get();
 
         //listSlider
-        $listSilders = Slider::get();
+        $listSilders = DB::table('sliders')->where('status', 1)->orderBy('sort', 'asc')->get();
 
         //listNewSale
         $listNewsSale = DB::table('news as N')

@@ -63,6 +63,8 @@
                 {{ __('New Social') }}
             </button>
         </div>
+        <!-- Error Message表示 -->
+        @include('admin.error')
         <div class="card-body">
             <div class="col-sm-12">
                 <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
@@ -121,8 +123,6 @@
                 <form action="{{url ('admin/social/add') }}" method="POST">
                     <!-- <form id="staffAdd"> -->
                     @csrf
-                    <!-- Error Message表示 -->
-                    @include('admin.error')
                     <div class="row">
                     <div class="col-md-12">
                             <div class="form-group">
