@@ -227,7 +227,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2021 <a href="#">BaoHo</a>.</strong>
+            <strong>Copyright &copy; 2022 <a href="#">BaoHo</a>.</strong>
             All rights reserved.
         </footer>
     </div>

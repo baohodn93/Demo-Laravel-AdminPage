@@ -20,10 +20,10 @@
             <div class="card-body">
                 <div class="form-group">
                     <select class="form-control" name="status">
-                        <option value="1" @if($sliders->isviews == 1) selected ="" @endif>
+                        <option value="1" @if($sliders->status == 1) selected ="" @endif>
                             Status：On
                         </option>
-                        <option value="0" @if($sliders->isviews == 0) selected ="" @endif>
+                        <option value="0" @if($sliders->status == 0) selected ="" @endif>
                             Status：Off
                         </option>
                     </select>
