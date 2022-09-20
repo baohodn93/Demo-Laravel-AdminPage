@@ -67,6 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth'], 'namespace
         Route::post('/add', 'SliderController@slider_add_post');
         Route::get('/edit/{id}', 'SliderController@slider_edit');
         Route::post('/edit/{id}', 'SliderController@slider_edit_post');
+        Route::get('/delete/{id}', 'SliderController@destroy');
     });
     //News catalogue management
     Route::group(['prefix' => 'news'], function () {

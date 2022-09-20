@@ -34,6 +34,14 @@
                     <input type="text" class="form-control" name="name" id="name" value="{{$sliders->name}}">
                 </div>
                 <div class="form-group">
+                    <label for="images">Images</label>
+                    </br>
+                    @if(!empty($sliders->images))
+                    <img style="width: 520px;" src="{{url('images/slider/' .$sliders->images) }}" alt="images">
+                    @endif
+                    <input type="file" class="form-control" name="images">
+                </div>
+                <div class="form-group">
                     <label for="sort" class="color-red">Arrange</label>
                     <input type="text" class="form-control" name="sort" id="sort" value="{{$sliders->sort}}">
                 </div>

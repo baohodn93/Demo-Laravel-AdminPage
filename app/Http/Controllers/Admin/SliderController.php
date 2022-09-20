@@ -39,6 +39,34 @@ class SliderController extends Controller
             $sliders->name = $request->name;
             $sliders->sort = $request->sort;
             $Flag = $sliders->save();
+            //upload images
+            if ($request->hasFile('images')) {
+                $file = $request->file('images');
+                $random_digit = rand(000000000, 999999999);
+                $name = $random_digit . '-' . $file->getClientOriginalName();
+
+
+                if(!empty($editslider->images)){
+                    if(file_exists('images/slider/' . $editslider->images)){
+                        unlink('images/slider/' . $editslider->images);
+                    }
+                }
+                $file->move('images/slider', $name);
+                $img = Image::make('images/slider/' . $name);
+                //Check exists
+                $filePath = "images/slider/" . date('Ymd');
+                if (!file_exists($filePath)) {
+                    mkdir("images/slider/" . date('Ymd'), 0777, true);
+                }
+                //delete images upload
+                if (file_exists('images/slider/' . $name)) {
+                    unlink('images/slider/' . $name);
+                }
+                $img->fit(208, 141);
+                $img->save('images/slider/' . date('Ymd') . '/' . $name);
+
+                $editslider->images = date('Ymd') . '/' . $name;
+            }            
             if ($Flag == true) {
                 return redirect('admin/slider/edit/' . $id)->with([
                     'flash_level' => 'success',
@@ -68,6 +96,7 @@ class SliderController extends Controller
             $sliders->name = $request->slider_name;
             $sliders->alias = $request->alias;
             $sliders->status = $request->status;
+            $sliders->sort = $request->sort;
             //upload images
             if ($request->hasFile('images')) {
                 $file = $request->file('images');
@@ -86,6 +115,7 @@ class SliderController extends Controller
                 if (file_exists('images/slider/' . $name)) {
                     unlink('images/slider/' . $name);
                 }
+                $img->fit(1920, 760);
                 $img->save('images/slider/' . date('Ymd') . '/' . $name);
 
                 $sliders->images = date('Ymd') . '/' . $name;
@@ -102,6 +132,31 @@ class SliderController extends Controller
                     'flash_message' => '情報登録失敗しました。'
                 ]);
             }
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+        $sliders = Slider::find($id);
+        $Flag = $sliders->delete();
+
+        if ($Flag == true) {
+            return redirect('admin/slider/list')->with([
+                'flash_level' => 'success',
+                'flash_message' => '情報削除しました。'
+            ]);
+        } else {
+            return redirect('admin/slider/list')->with([
+                'flash_level' => 'danger',
+                'flash_message' => '情報削除失敗しました。'
+            ]);
         }
     }
 }
