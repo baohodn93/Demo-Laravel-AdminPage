@@ -165,6 +165,10 @@ body {
     color: #24313d;
 }
 
+.home_top_left ul li a {
+    text-decoration: none;
+}
+
 .home_top_left ul li a b {
     color: #f54c0b;
     display: block;
@@ -240,6 +244,10 @@ body {
     color: #ffffff;
 }
 
+.home_center a:hover {
+    text-decoration: none;
+}
+
 .home_center a b {
     color: #f54c0b;
     display: block;
@@ -281,6 +289,10 @@ body {
 
 .home_bottom ul li a {
     color: #24313d;
+}
+
+.home_bottom ul li a:hover {
+    text-decoration: none;
 }
 
 .home_bottom ul li a b {
@@ -348,6 +360,7 @@ body {
     width: 100%;
     position: relative;
     background-color: #1c252e;
+    color: white;
     border: none;
     padding: 20px;
     height: 40px;

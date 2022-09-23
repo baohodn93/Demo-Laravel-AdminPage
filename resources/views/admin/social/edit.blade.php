@@ -34,6 +34,10 @@
                     <input type="text" class="form-control" name="socialname" id="socialname" value="{{$socials->name}}">
                 </div>
                 <div class="form-group">
+                    <label for="alias" class="color-red">Alias</label>
+                    <input type="text" class="form-control" name="alias" id="alias" value="{{$socials->alias}}">
+                </div>
+                <div class="form-group">
                     <label for="font" class="color-red">Font</label>
                     <input type="text" class="form-control" name="font" id="font" value="{{$socials->font}}">
                 </div>

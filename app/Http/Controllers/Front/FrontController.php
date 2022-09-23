@@ -7,6 +7,7 @@ use App\Models\Social;
 use App\Models\Page;
 use App\Models\News;
 use App\Models\Slider;
+use App\Models\Promotion;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -51,7 +52,10 @@ class FrontController extends Controller
             ->get();
 
         //listSlider
-        $listSilders = DB::table('sliders')->where('status', 1)->orderBy('sort', 'asc')->get();
+        $listSilders = DB::table('sliders')
+            ->where('status', 1)
+            ->orderBy('sort', 'asc')
+            ->get();
 
         //listNewSale
         $listNewsSale = DB::table('news as N')
@@ -72,4 +76,23 @@ class FrontController extends Controller
 
         return view('front.home.index', compact('listNews', 'listSilders', 'listNewsSale','listNewsViews'));
     }
+
+    public function subEmail(Request $request)
+    {
+        if($request->txtEmailSub != ''){
+
+            $promotions = Promotion::where('email', $request->txtEmailSub)->get();
+            if(isset($promotions) && count($promotions) > 0){
+                echo 'error_exit_email';
+            }else{
+                $promotions = new Promotion;
+                $promotions->email = $request->txtEmailSub;
+                $Flag = $promotions->save();
+                if ($Flag == true) {
+                    echo 'success';
+                }
+            }
+        }
+    }
+
 }

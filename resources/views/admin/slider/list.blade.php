@@ -75,6 +75,7 @@
                             <th>Name</th>
                             <th>Avatar</th>
                             <th>Status</th>
+                            <th>Sort</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -94,6 +95,7 @@
                                 <span style="color: green;">Off</span>
                                 @endif
                             </td>
+                            <td>{{$v->sort}}</td>
                             <td>
                                 <a href="{{url ('admin/slider/edit/' .$v->id ) }}" title="Edit" class="ad_button" id="btnEdit">
                                     <i class="fas fa-edit"></i>

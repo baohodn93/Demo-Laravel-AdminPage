@@ -140,6 +140,12 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="alias" class="color-red">Alias</label>
+                                <input type="text" class="form-control" name="alias">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="font" class="color-red">Font</label>
                                 <input type="text" class="form-control" name="font">
                             </div>

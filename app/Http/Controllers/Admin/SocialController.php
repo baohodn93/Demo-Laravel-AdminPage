@@ -37,6 +37,7 @@ class SocialController extends Controller
             $socials = Social::find($id);
             $socials->status = $request->status;
             $socials->name = $request->socialname;
+            $socials->alias = $request->alias;
             $socials->font = $request->font;
             $socials->sort = $request->sort;
             $Flag = $socials->save();
@@ -68,6 +69,7 @@ class SocialController extends Controller
             $socials = new Social;
             $socials->status = $request->status;
             $socials->name = $request->socialname;
+            $socials->alias = $request->alias;
             $socials->font = $request->font;
             $socials->sort = $request->sort;
 

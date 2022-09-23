@@ -37,6 +37,7 @@ class SliderController extends Controller
             $sliders = Slider::find($id);
             $sliders->status = $request->status;
             $sliders->name = $request->name;
+            $sliders->alias = $request->alias;
             $sliders->sort = $request->sort;
             $Flag = $sliders->save();
             //upload images

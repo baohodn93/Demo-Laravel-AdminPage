@@ -13,7 +13,7 @@
                     <div class="header_social">
                         @if(isset($socials) && count($socials) > 0)
                         @foreach($socials as $k => $v)
-                        <a href="{{$v->class_alias}}" title="{{$v->name}}">
+                        <a href="{{$v->alias}}" title="{{$v->name}}">
                             {!!$v->font!!}
                         </a>
                         @endforeach

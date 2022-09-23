@@ -7,8 +7,8 @@
                         Sign Up To Promotions
                     </div>
                     <div class="footer_top_right">
-                        <input type="text" placeholder="Email...."/>
-                        <button>Send</button>
+                        <input type="text" id="txtEmailSub" placeholder="Email...."/>
+                        <button id="btnSendSub">Send</button>
                     </div>
                 </div>
             </div>

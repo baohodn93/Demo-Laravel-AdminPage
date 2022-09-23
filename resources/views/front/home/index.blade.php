@@ -21,11 +21,15 @@
                 @foreach ($listSilders as $k =>$v)
                 @if($v->sort == 0)
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{url('images/slider/' .$v->images)}}">
+                    <a href="{{$v->alias}}" title="{{$v->name}}" >
+                        <img class="d-block w-100" src="{{url('images/slider/' .$v->images)}}">
+                    </a>
                 </div>
                 @else
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{url('images/slider/' .$v->images)}}">
+                    <a href="{{$v->alias}}" title="{{$v->name}}">
+                        <img class="d-block w-100" src="{{url('images/slider/' .$v->images)}}">
+                    </a>
                 </div>
                 @endif
                 @endforeach
@@ -78,7 +82,7 @@
                         <div class="home_social">
                             @if(isset($socials) && count($socials) > 0)
                             @foreach($socials as $k => $v)
-                            <a href="{{$v->class_alias}}" title="{{$v->name}}">
+                            <a href="{{$v->alias}}" title="{{$v->name}}">
                                 {!!$v->font!!}
                             </a>
                             @endforeach

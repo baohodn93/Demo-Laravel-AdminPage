@@ -23,9 +23,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 // Frontend Route
 Route::get('/','Front\FrontController@home');
+// Subcribe Route
+Route::post('/sign-up-to-promotions','Front\FrontController@subEmail');
 
 // BackEnd Route
 //welcome to admin

@@ -34,6 +34,10 @@
                     <input type="text" class="form-control" name="name" id="name" value="{{$sliders->name}}">
                 </div>
                 <div class="form-group">
+                    <label for="name" class="color-red">Alias</label>
+                    <input type="text" class="form-control" name="alias" id="alias" value="{{$sliders->alias}}">
+                </div>
+                <div class="form-group">
                     <label for="images">Images</label>
                     </br>
                     @if(!empty($sliders->images))

@@ -22,8 +22,6 @@ class UserController extends Controller
 
     public function profile_edit()
     {
-        // $data = User::get();
-        // return view('user.profile',compact('data'));
         $users = Auth::user();
         $data = User::find($users->id);
         return view('user.profile',compact('data'));
