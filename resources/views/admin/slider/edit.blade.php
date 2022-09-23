@@ -13,7 +13,7 @@
             </a>
         </div>
         <!-- form start -->
-        <form role="form" action="{{url ('admin/slider/edit/' .$sliders->id) }}" method="POST">
+        <form role="form" action="{{url ('admin/slider/edit/' .$sliders->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Error Message表示 -->
             @include('admin.error')
@@ -34,7 +34,7 @@
                     <input type="text" class="form-control" name="name" id="name" value="{{$sliders->name}}">
                 </div>
                 <div class="form-group">
-                    <label for="name" class="color-red">Alias</label>
+                    <label for="alias" class="color-red">Alias</label>
                     <input type="text" class="form-control" name="alias" id="alias" value="{{$sliders->alias}}">
                 </div>
                 <div class="form-group">

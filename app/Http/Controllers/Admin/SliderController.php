@@ -34,12 +34,11 @@ class SliderController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $sliders = Slider::find($id);
-            $sliders->status = $request->status;
-            $sliders->name = $request->name;
-            $sliders->alias = $request->alias;
-            $sliders->sort = $request->sort;
-            $Flag = $sliders->save();
+            $editSliders = Slider::find($id);
+            $editSliders->status = $request->status;
+            $editSliders->name = $request->name;
+            $editSliders->alias = $request->alias;
+            $editSliders->sort = $request->sort;
             //upload images
             if ($request->hasFile('images')) {
                 $file = $request->file('images');
@@ -47,9 +46,9 @@ class SliderController extends Controller
                 $name = $random_digit . '-' . $file->getClientOriginalName();
 
 
-                if(!empty($editslider->images)){
-                    if(file_exists('images/slider/' . $editslider->images)){
-                        unlink('images/slider/' . $editslider->images);
+                if(!empty($editSliders->images)){
+                    if(file_exists('images/slider/' . $editSliders->images)){
+                        unlink('images/slider/' . $editSliders->images);
                     }
                 }
                 $file->move('images/slider', $name);
@@ -63,11 +62,12 @@ class SliderController extends Controller
                 if (file_exists('images/slider/' . $name)) {
                     unlink('images/slider/' . $name);
                 }
-                $img->fit(208, 141);
+                $img->fit(1920, 760);
                 $img->save('images/slider/' . date('Ymd') . '/' . $name);
 
-                $editslider->images = date('Ymd') . '/' . $name;
-            }            
+                $editSliders->images = date('Ymd') . '/' . $name;
+            }
+            $Flag = $editSliders->save();           
             if ($Flag == true) {
                 return redirect('admin/slider/edit/' . $id)->with([
                     'flash_level' => 'success',
