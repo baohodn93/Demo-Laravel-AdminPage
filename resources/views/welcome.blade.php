@@ -74,10 +74,6 @@
                 @endif
                 @endauth
                 @endif
-                {{-- <li class="nav-item"><a href="#" class="nav-link">About US</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">News</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Sale</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li> --}}
             </ul>
         </div>
     </nav>
